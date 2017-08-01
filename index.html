@@ -7,10 +7,15 @@
 </head>
 <body ng-controller="MainController">
     
-    {{thisAppIsBroken}}
+    <div ng-repeat='user in users' ng-class='{favorite: user.isFavorite}'>
+        <h4>{{user.first_name + ' ' + user.last_name}}</h4>
+        <img ng-src={{user.avatar}} alt="">
+        <button ng-click='toggle(user.id)'>Toggle Favorite</button>
+    </div>
     
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
      <script src="app.js"></script>
+     <script src='mainService.js'></script>
      <script src="controller.js"></script>
 </body>
 </html>
